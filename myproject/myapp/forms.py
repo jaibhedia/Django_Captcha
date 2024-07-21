@@ -1,8 +1,13 @@
 from django import forms
 from captcha.fields import CaptchaField
+from .models import User
 
-class MyForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    message = forms.CharField(widget=forms.Textarea)
+class RegistrationForm(forms.ModelForm):
     captcha = CaptchaField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+        widgets = {
+            'password': forms.PasswordInput(),
+        }

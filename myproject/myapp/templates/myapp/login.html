@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Railway Reservation - User Registration</title>
+    <title>Login</title>
     <style>
         body {
             background-image: url('https://bsmedia.business-standard.com/_media/bs/img/article/2022-08/11/full/1660191933-0502.jpg?im=FeatureCrop,size=(826,465)%27');
@@ -34,7 +34,7 @@
             margin-bottom: 8px;
             color: #555;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
+        input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -71,14 +71,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Railway Reservation - User Registration</h1>
-        <form method="post">
+        <h1>Login</h1>
+        <form method="post" action="#">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Register</button>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <input type="submit" value="Login">
         </form>
         <div class="form-footer">
-            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
         </div>
     </div>
 </body>

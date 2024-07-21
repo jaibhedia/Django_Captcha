@@ -1,16 +1,23 @@
-from django.shortcuts import render
-from .forms import MyForm  # Ensure the form is imported
+from django.shortcuts import render, redirect
+from .forms import RegistrationForm  # Ensure this import is present
 
 def home_view(request):
     return render(request, 'myapp/home.html')
 
-def my_view(request):
+def user_list_view(request):
+    users = User.objects.all()
+    return render(request, 'myapp/user_list.html', {'users': users})
+
+def registration_view(request):
     if request.method == 'POST':
-        form = MyForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
-            # Process the form data
-            ...
+            form.save()
+            return redirect('home')
     else:
-        form = MyForm()
+        form = RegistrationForm()
 
     return render(request, 'myapp/my_template.html', {'form': form})
+
+def login_view(request):
+    return render(request, 'myapp/login.html')
