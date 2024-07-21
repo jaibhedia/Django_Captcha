@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <style>
+        body {
+            background-image: url('https://bsmedia.business-standard.com/_media/bs/img/article/2022-08/11/full/1660191933-0502.jpg?im=FeatureCrop,size=(826,465)%27');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 100px auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Railway Reservation System</h1>
-    <p><a href="{% url 'register' %}">Register here</a></p>
+    <div class="container">
+        <h1>Welcome to Railway Reservation System</h1>
+        <p><a href="{% url 'register' %}">Register here</a></p>
+        <p><a href="{% url 'login' %}">Login here</a></p>
+        <p><a href="{% url 'user_list' %}">View Users</a></p>
+    </div>
 </body>
 </html>
